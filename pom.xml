@@ -9,7 +9,7 @@
     <name>TestMaven</name>
     <packaging>jar</packaging>
 
-    <properties>
+     <properties>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
     </properties>
@@ -20,20 +20,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.9</version>
-        </dependency>
-
-        <!-- JUnit 5 for testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.3</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Selenium (Includes WebDriver and DevTools) -->
@@ -50,7 +36,7 @@
             <version>5.9.3</version>
         </dependency>
 
-        <!-- TestNG (If you're using TestNG instead of JUnit) -->
+        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -58,12 +44,24 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ExtentReports (Moved inside dependencies) -->
+        <!-- ExtentReports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.1.1</version>
         </dependency>
+
+
+        <dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.13</version>
+</dependency>
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+</dependency>
     </dependencies>
 
     <build>
@@ -79,11 +77,16 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Surefire Plugin (for running JUnit and TestNG tests) -->
+            <!-- Maven Surefire Plugin (for running TestNG tests) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M9</version>
+                <version>3.1.2</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <!-- Path to your testng.xml -->
+                    </suiteXmlFiles>
+                </configuration>
             </plugin>
 
             <!-- Maven Exec Plugin (To run Java classes directly) -->

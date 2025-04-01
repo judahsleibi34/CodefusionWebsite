@@ -1,3 +1,6 @@
-MainFrame_CodeFusionWebsite.class
-Variable_CodeFusionWebsite.class
-BeforeClass_CodeFusionWebsite.class
+com\example\frameThree.class
+com\example\Main.class
+com\example\frameOne.class
+com\example\Variables.class
+com\example\beforeClass.class
+com\example\frameTwo.class

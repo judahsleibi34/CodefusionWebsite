@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-01T20:26:02 IDT" name="CodeFusion Website Tests Suite" finished-at="2025-04-01T20:28:02 IDT" duration-ms="120128">
+    <groups>
+    </groups>
+    <test started-at="2025-04-01T20:26:02 IDT" name="CodeFusion Website Tests" finished-at="2025-04-01T20:28:02 IDT" duration-ms="120128">
+      <class name="com.example.Main">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:com.example.Main@776aec5c]" started-at="2025-04-01T20:26:02 IDT" name="setUpTest" finished-at="2025-04-01T20:26:04 IDT" duration-ms="2132" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="webprojectSecttionOne()[pri:1, instance:com.example.Main@776aec5c]" started-at="2025-04-01T20:26:04 IDT" name="webprojectSecttionOne" finished-at="2025-04-01T20:26:34 IDT" duration-ms="29643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webprojectSecttionOne -->
+        <test-method signature="webprojectSecttionTwo()[pri:2, instance:com.example.Main@776aec5c]" started-at="2025-04-01T20:26:34 IDT" name="webprojectSecttionTwo" finished-at="2025-04-01T20:28:02 IDT" duration-ms="88316" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- webprojectSecttionTwo -->
+        <test-method signature="aboutus()[pri:3, instance:com.example.Main@776aec5c]" started-at="2025-04-01T20:28:02 IDT" name="aboutus" finished-at="2025-04-01T20:28:02 IDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aboutus -->
+      </class> <!-- com.example.Main -->
+    </test> <!-- CodeFusion Website Tests -->
+  </suite> <!-- CodeFusion Website Tests Suite -->
+</testng-results>

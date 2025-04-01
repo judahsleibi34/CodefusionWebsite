@@ -1,59 +1,79 @@
 package com.example;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.TestNG;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Main {
 
-    private BeforeClass_CodeFusionWebsite beforeClass_codefusionwebsite;
-    private Variable_CodeFusionWebsite variables_codefusionwebsite;
-    private MainFrame_CodeFusionWebsite mainframe_codefusionwebsite;
-    private OurWorkFrame_CodeFusionWebsite ourworkframe_codefusionwebsite;
+    private static WebDriver driver;
+    private beforeClass beforeclass;
+    private Variables variables;
+    private frameOne frameone;
+    private frameTwo frametwo;
+    private frameThree framethree;
 
     @BeforeTest
     public void setUpTest() throws Exception {
         System.out.println("Initializing CodeFusion Website Tests...");
 
-        beforeClass_codefusionwebsite = new BeforeClass_CodeFusionWebsite();
-        variables_codefusionwebsite = new Variable_CodeFusionWebsite();
+        beforeclass = beforeClass.getInstance();
+        beforeclass.Setup();
+        driver = beforeClass.getDriver();
 
-        beforeClass_codefusionwebsite.Setup();
+        if (driver == null) {
+            throw new IllegalStateException("WebDriver could not be initialized");
+        }
 
-        mainframe_codefusionwebsite = new MainFrame_CodeFusionWebsite(beforeClass_codefusionwebsite);
-        ourworkframe_codefusionwebsite = new OurWorkFrame_CodeFusionWebsite(mainframe_codefusionwebsite.getDriver());
+        variables = new Variables();
+        frameone = new frameOne(driver);
+        frametwo = new frameTwo(driver);
+        framethree = new frameThree(driver);
     }
 
     @Test(priority = 1)
     public void webprojectSecttionOne() throws Exception {
 
-        if (variables_codefusionwebsite.counter == 0) {
-            mainframe_codefusionwebsite.URLOpenning();
-            mainframe_codefusionwebsite.mainFrameScrolling();
-            mainframe_codefusionwebsite.homeMainBarClick();
-            mainframe_codefusionwebsite.projectsMainBarClick();
-            mainframe_codefusionwebsite.aboutMainBarClick();
-            mainframe_codefusionwebsite.topScreen();
-            mainframe_codefusionwebsite.instagramIcon();
-            // mainframe_codefusionwebsite.emailIcon();
-            // mainframe_codefusionwebsite.whatsupIcon();
-            mainframe_codefusionwebsite.twitterXIcon();
-            mainframe_codefusionwebsite.ourworkIcon();
-
-            variables_codefusionwebsite.counter += 1;
+        if (variables.counter == 0) {
+            frameone.URLOpenning();
+            frameone.mainFrameScrolling();
+            frameone.homeMainBarClick();
+            frameone.projectsMainBarClick();
+            frameone.aboutMainBarClick();
+            frameone.topScreen();
+            frameone.instagramIcon();
+            frameone.twitterXIcon();
+            frameone.ourworkIcon();
+            variables.counter += 1;
         }
     }
 
     @Test(priority = 2)
     public void webprojectSecttionTwo() throws Exception {
-        if (variables_codefusionwebsite.counter == 1) {
-
-            ourworkframe_codefusionwebsite.ViewOurWork();
-            ourworkframe_codefusionwebsite.PorjectSlider();
-            variables_codefusionwebsite.counter += 1;
+        if (variables.counter == 1) {
+            frametwo.allProjects();
+            frametwo.belowBar();
+            frametwo.webDevtab();
+            frametwo.belowBar();
+            frametwo.aiML_projects();
+            frametwo.belowBar();
+            frametwo.games();
+            frametwo.belowBar();
+            frametwo.Upcoming();
+            frametwo.belowBar();
+            variables.counter += 1;
         }
-
     }
+
+    @Test(priority = 3)
+    public void aboutus() throws Exception {
+        if (variables.counter == 3) {
+            framethree.aboutUs();
+            frametwo.belowBar();
+    }
+    }
+    
 
     public static void main(String[] args) {
 
